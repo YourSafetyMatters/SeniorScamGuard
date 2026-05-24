@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 760" role="img" aria-label="Senior Scam Guard logo">
+  <rect width="820" height="760" rx="40" fill="white"/>
+
+  <!-- Shield outline -->
+  <path d="M 210 720
+           Q 60 620, 38 510
+           L 38 95
+           Q 38 42, 88 42
+           L 332 42
+           Q 382 42, 382 95
+           L 382 510
+           Q 360 620, 210 720 Z"
+        fill="none" stroke="#0d2d87" stroke-width="24" stroke-linejoin="round"/>
+
+  <!-- Padlock shackle -->
+  <path d="M 136 400 L 136 290 Q 136 210 210 210 Q 284 210 284 290 L 284 400"
+        fill="none" stroke="#0d2d87" stroke-width="22" stroke-linecap="round"/>
+
+  <!-- Padlock body -->
+  <rect x="104" y="395" width="212" height="230" rx="18" fill="none" stroke="#0d2d87" stroke-width="22"/>
+
+  <!-- Dollar sign on padlock -->
+  <text x="210" y="567" text-anchor="middle" font-size="138" fill="#4faee0" font-weight="900" font-family="Arial Black, Arial, sans-serif">$</text>
+
+  <!-- Text: Senior -->
+  <text x="448" y="215" font-family="Georgia, 'Times New Roman', serif" font-size="118" font-weight="700" fill="#0d2d87">Senior</text>
+
+  <!-- Text: Scam -->
+  <text x="448" y="400" font-family="Georgia, 'Times New Roman', serif" font-size="118" font-weight="700" fill="#0d2d87">Scam</text>
+
+  <!-- Text: Guard -->
+  <text x="448" y="590" font-family="Georgia, 'Times New Roman', serif" font-size="130" font-weight="700" fill="#4faee0">Guard</text>
+</svg>

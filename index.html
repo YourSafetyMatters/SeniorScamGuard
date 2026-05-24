@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Senior Scam Guard — Protecting Seniors from Financial Fraud</title>
+  <meta name="description" content="Free awareness sessions and newsletters to help seniors protect themselves from financial scams and fraud. Learn. Protect. Empower.">
+  <style>
+    /* ── Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:   #1a3a5c;
+      --navy-dark: #0f2440;
+      --gold:   #e07b00;
+      --gold-light: #fff3e0;
+      --white:  #ffffff;
+      --bg:     #f7f9fc;
+      --text:   #1a1a1a;
+      --muted:  #555e6b;
+      --border: #dce3ec;
+      --radius: 12px;
+      --shadow: 0 2px 16px rgba(26,58,92,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+    }
+    h1, h2, h3, h4, nav, .btn, .badge, .stat-num, .tag {
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    a { color: var(--navy); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; display: block; }
+
+    /* ── Layout helpers ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 72px 0; }
+    .section-alt { background: var(--white); }
+    .section-dark { background: var(--navy); color: var(--white); }
+    .section-gold { background: var(--gold-light); }
+    .text-center { text-align: center; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .grid-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; align-items: center; }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      padding: 0 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 70px;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 12px;
+      color: var(--white); font-size: 20px; font-weight: 700;
+      text-decoration: none;
+    }
+    .nav-brand img { height: 52px; width: auto; object-fit: contain; filter: brightness(0) invert(1); }
+    .nav-links { display: flex; gap: 8px; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.85); font-size: 15px; padding: 6px 14px;
+      border-radius: 6px; transition: background 0.2s;
+      text-decoration: none;
+    }
+    .nav-links a:hover { background: rgba(255,255,255,0.12); color: var(--white); text-decoration: none; }
+    .nav-cta {
+      background: var(--gold) !important; color: var(--white) !important;
+      font-weight: 600; padding: 8px 20px !important;
+    }
+    .nav-cta:hover { background: #c56c00 !important; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #0f2440 0%, #1a3a5c 60%, #1e4a75 100%);
+      color: var(--white);
+      padding: 72px 24px 60px;
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 56px;
+      align-items: center;
+    }
+    .hero-text { text-align: left; }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(224,123,0,0.25);
+      color: #ffd080;
+      border: 1px solid rgba(224,123,0,0.5);
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(30px, 4.5vw, 52px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+    .hero h1 span { color: #ffc040; }
+    .hero-sub {
+      font-size: clamp(17px, 1.8vw, 21px);
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 28px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .hero-stat {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: var(--radius);
+      padding: 18px 24px;
+      margin-bottom: 32px;
+      font-size: 16px;
+      font-style: italic;
+      color: rgba(255,255,255,0.90);
+    }
+    .hero-stat strong { color: #ffc040; font-style: normal; font-size: 20px; }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-image-wrap {
+      position: relative;
+    }
+    .hero-photo {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.40);
+      display: block;
+    }
+    .hero-photo-badge {
+      position: absolute;
+      bottom: -16px;
+      left: 20px;
+      background: var(--gold);
+      color: white;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      line-height: 1.3;
+    }
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-image-wrap { display: none; }
+      .hero-text { text-align: center; }
+      .hero-btns { justify-content: center; }
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.18); text-decoration: none; }
+    .btn-primary { background: var(--gold); color: var(--white); }
+    .btn-primary:hover { background: #c56c00; color: var(--white); }
+    .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.6); }
+    .btn-outline:hover { background: rgba(255,255,255,0.12); color: var(--white); }
+    .btn-navy { background: var(--navy); color: var(--white); }
+    .btn-navy:hover { background: var(--navy-dark); color: var(--white); }
+
+    /* ── Section headings ── */
+    .section-label {
+      display: inline-block;
+      color: var(--gold);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .section-dark .section-title { color: var(--white); }
+    .section-desc {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 48px;
+    }
+    .section-desc.center { margin-left: auto; margin-right: auto; }
+
+    /* ── Trust bar ── */
+    .trust-bar {
+      background: var(--navy-dark);
+      padding: 18px 24px;
+    }
+    .trust-items {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; gap: 32px; justify-content: center;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.80);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 15px;
+    }
+    .trust-item svg { flex-shrink: 0; }
+
+    /* ── Service cards ── */
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(26,58,92,0.14); }
+    .service-icon {
+      width: 56px; height: 56px;
+      background: var(--gold-light);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+    }
+    .service-icon svg { width: 28px; height: 28px; color: var(--gold); }
+    .service-card h3 {
+      font-size: 21px; font-weight: 700; color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .service-card p { font-size: 16px; color: var(--muted); line-height: 1.6; }
+
+    /* ── Scam types ── */
+    .scam-card {
+      background: var(--white);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 22px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+    }
+    .scam-card h3 { font-size: 18px; color: var(--navy); margin-bottom: 6px; font-weight: 700; }
+    .scam-card p { font-size: 16px; color: var(--muted); line-height: 1.55; }
+    .scam-card .warn {
+      display: inline-block;
+      margin-top: 10px;
+      background: #fff3e0;
+      color: #a05000;
+      font-size: 13px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* ── Blog ── */
+    .blog-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s;
+    }
+    .blog-card:hover { transform: translateY(-3px); }
+    .blog-card-img {
+      width: 100%; height: 200px;
+      object-fit: cover;
+    }
+    .blog-card-img-placeholder {
+      width: 100%; height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 48px;
+    }
+    .blog-card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .blog-tag {
+      display: inline-block;
+      background: var(--gold-light);
+      color: var(--gold);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+    .blog-card h3 { font-size: 20px; color: var(--navy); margin-bottom: 10px; line-height: 1.3; }
+    .blog-card p { font-size: 16px; color: var(--muted); flex: 1; line-height: 1.6; margin-bottom: 18px; }
+    .blog-card .read-more {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .blog-card .read-more:hover { color: #c56c00; }
+    .blog-meta {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 12px;
+    }
+
+    /* ── About ── */
+    .about-photo {
+      width: 320px; height: 380px;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 32px rgba(26,58,92,0.18);
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .about-tagline {
+      display: flex; gap: 24px; flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .tagline-item {
+      text-align: center;
+      background: var(--gold-light);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      min-width: 110px;
+    }
+    .tagline-item .t-icon { font-size: 28px; margin-bottom: 4px; }
+    .tagline-item .t-word { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; color: var(--navy); font-size: 15px; }
+
+    /* ── Signup / form section ── */
+    .signup-section {
+      background: var(--navy);
+      padding: 72px 24px;
+      text-align: center;
+    }
+    .signup-section .section-title { color: var(--white); }
+    .signup-section .section-desc { color: rgba(255,255,255,0.80); margin-left: auto; margin-right: auto; }
+    .form-wrapper {
+      max-width: 700px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.28);
+    }
+    .form-wrapper iframe {
+      width: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,0.70);
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-brand {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .footer-tagline { font-size: 15px; margin-bottom: 20px; font-style: italic; }
+    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+    .footer-links a { color: rgba(255,255,255,0.70); font-size: 15px; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 14px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .grid-2, .grid-3, .grid-2-1 { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero { padding: 56px 16px 48px; }
+      .section { padding: 52px 0; }
+      .about-photo { margin: 0 auto; }
+      .grid-2-1 > div:last-child { display: flex; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-brand" href="#home">
+        <img src="images/logo.svg" alt="Senior Scam Guard logo" style="height:52px;width:auto;filter:none;background:white;border-radius:6px;padding:2px 4px;">
+      </a>
+      <div class="nav-links">
+        <a href="#how-we-help">How We Help</a>
+        <a href="#scam-types">Know the Scams</a>
+        <a href="#blog">Blog</a>
+        <a href="#about">About</a>
+        <a href="#signup" class="nav-cta">Sign Up Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-eyebrow">Free · Community-Driven · Trusted</div>
+        <h1>Don't Be a Victim of<br><span>Financial Scams</span></h1>
+        <p class="hero-sub">Learn how to protect yourself from fraud and manipulation — for free.</p>
+        <div class="hero-stat">
+          <strong>$3.4 Billion</strong> lost by seniors to scams in 2023 alone.
+          Over 101,000 cases reported to the FBI.<br>
+          <span style="font-size:15px;">— FBI Elder Fraud Report, 2023</span>
+        </div>
+        <div class="hero-btns">
+          <a href="#signup" class="btn btn-primary">Sign Up for Free Alerts</a>
+          <a href="#how-we-help" class="btn btn-outline">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-image-wrap">
+        <img
+          class="hero-photo"
+          src="images/hero.jpg"
+          alt="Senior citizen staying safe and informed"
+        >
+        <div class="hero-photo-badge">
+          🛡️ Your safety matters.<br>Knowledge is your best defense.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Trust bar ── -->
+  <div class="trust-bar">
+    <div class="trust-items">
+      <div class="trust-item">
+        <svg width="18" height="18" fill="none" stroke="#ffc040" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        100% Free — Always
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" fill="none" stroke="#ffc040" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        Free Awareness Sessions
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" fill="none" stroke="#ffc040" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Monthly Scam Alerts Newsletter
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" fill="none" stroke="#ffc040" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        Educational Resources &amp; Blog
+      </div>
+    </div>
+  </div>
+
+  <!-- ── How We Help ── -->
+  <section id="how-we-help" class="section section-alt">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label">What we offer</div>
+        <h2 class="section-title">Your Safety Is Our Mission</h2>
+        <p class="section-desc center">Knowledge is your best defense. Here's how Senior Scam Guard helps protect you and your loved ones.</p>
+      </div>
+      <div class="grid-3">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+          </div>
+          <h3>Monthly Scam Alerts</h3>
+          <p>Receive a free newsletter with the latest scams targeting seniors in your area — delivered straight to your inbox each month. No junk, just safety.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3>Free Awareness Sessions</h3>
+          <p>Join one of our free group sessions — in person or online — to learn how scammers operate and practice spotting red flags before they happen to you.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          </div>
+          <h3>Educational Blog</h3>
+          <p>Read clear, plain-language articles about the most common scams, warning signs to watch for, and exactly what to do if something doesn't feel right.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Scam Types ── -->
+  <section id="scam-types" class="section section-gold">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label">Protect yourself</div>
+        <h2 class="section-title">Common Scams Targeting Seniors</h2>
+        <p class="section-desc center">Scammers use fear, urgency, and trust to take advantage of seniors. Knowing what they look like is the first step to stopping them.</p>
+      </div>
+      <div class="grid-2">
+        <div class="scam-card">
+          <h3>📞 Phone Impersonation Scams</h3>
+          <p>Callers pretend to be from the IRS, Social Security Administration, or Medicare. They claim you owe money or your benefits are at risk — and demand immediate payment.</p>
+          <span class="warn">Red flag: Government agencies never call demanding gift cards or wire transfers.</span>
+        </div>
+        <div class="scam-card">
+          <h3>💻 Tech Support Scams</h3>
+          <p>A pop-up or call says your computer has a virus. "Microsoft" or "Apple" support offers to fix it — but they really want remote access to your computer and bank accounts.</p>
+          <span class="warn">Red flag: Legitimate companies never contact you unsolicited about computer problems.</span>
+        </div>
+        <div class="scam-card">
+          <h3>❤️ Romance Scams</h3>
+          <p>Someone online builds a close relationship over weeks or months, then asks for money — for an emergency, travel costs, or medical bills. They may never meet you in person.</p>
+          <span class="warn">Red flag: Anyone asking for money online who you've never met in person.</span>
+        </div>
+        <div class="scam-card">
+          <h3>👴 Grandparent Scams</h3>
+          <p>A caller pretends to be your grandchild in trouble ("I was in an accident, please don't tell Mom"). They ask for bail money or emergency funds sent immediately.</p>
+          <span class="warn">Red flag: Urgency + secrecy = scam. Always call the grandchild back on a known number.</span>
+        </div>
+        <div class="scam-card">
+          <h3>💊 Medicare &amp; Health Insurance Scams</h3>
+          <p>Scammers pose as Medicare representatives offering "free" equipment or benefits in exchange for your Medicare number — which they use to commit fraud.</p>
+          <span class="warn">Red flag: Never give your Medicare number to anyone who contacts you first.</span>
+        </div>
+        <div class="scam-card">
+          <h3>🏦 Lottery &amp; Prize Scams</h3>
+          <p>"Congratulations, you've won!" But to collect your prize, you must pay taxes or fees upfront. There is no prize — only the money you send them.</p>
+          <span class="warn">Red flag: You can't win a contest you didn't enter. You never pay to collect a real prize.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Blog ── -->
+  <section id="blog" class="section section-alt">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label">Stay informed</div>
+        <h2 class="section-title">From the Blog</h2>
+        <p class="section-desc center">Plain-language guides written for seniors — no tech jargon, no complicated advice.</p>
+      </div>
+      <div class="grid-3">
+
+        <!-- Blog Post 1 -->
+        <div class="blog-card">
+          <div class="blog-card-img-placeholder" style="background:#e8f0fe;">🔍</div>
+          <div class="blog-card-body">
+            <span class="blog-tag">Scam Awareness</span>
+            <div class="blog-meta">May 2026 · 5 min read</div>
+            <h3>The Top 5 Scams Targeting Seniors Right Now</h3>
+            <p>Scammers are constantly changing their tactics. In 2025 alone, seniors lost over $3.4 billion to fraud. Here are the five most dangerous scams you need to know about — and exactly how to spot them before it's too late.</p>
+            <a class="read-more" href="#blog-post-1" onclick="togglePost('post1'); return false;">Read full article ↓</a>
+          </div>
+        </div>
+
+        <!-- Blog Post 2 -->
+        <div class="blog-card">
+          <div class="blog-card-img-placeholder" style="background:#fce8e6;">🆘</div>
+          <div class="blog-card-body">
+            <span class="blog-tag">What To Do</span>
+            <div class="blog-meta">May 2026 · 4 min read</div>
+            <h3>What To Do If You Think You've Been Scammed</h3>
+            <p>It can happen to anyone. If you think a scammer has targeted you, don't panic — but do act quickly. This step-by-step guide walks you through exactly what to do in the first 24 hours after a scam.</p>
+            <a class="read-more" href="#blog-post-2" onclick="togglePost('post2'); return false;">Read full article ↓</a>
+          </div>
+        </div>
+
+        <!-- Blog Post 3 -->
+        <div class="blog-card">
+          <div class="blog-card-img-placeholder" style="background:#e6f4ea;">🛡️</div>
+          <div class="blog-card-body">
+            <span class="blog-tag">Prevention Tips</span>
+            <div class="blog-meta">May 2026 · 4 min read</div>
+            <h3>10 Simple Rules That Will Keep You Safe from Scammers</h3>
+            <p>You don't need to be a tech expert to protect yourself. These 10 easy rules — simple enough to write on a notecard and keep by your phone — will stop most scams before they start.</p>
+            <a class="read-more" href="#blog-post-3" onclick="togglePost('post3'); return false;">Read full article ↓</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Expandable Blog Post 1 -->
+      <div id="post1" style="display:none; margin-top:40px; background:var(--white); border:1px solid var(--border); border-radius:var(--radius); padding:40px; box-shadow:var(--shadow);">
+        <span class="blog-tag">Scam Awareness</span>
+        <h2 style="font-size:28px; color:var(--navy); margin:16px 0 8px; line-height:1.2;">The Top 5 Scams Targeting Seniors Right Now</h2>
+        <p style="color:#999; font-size:14px; font-family:'Segoe UI',Arial,sans-serif; margin-bottom:28px;">By Rahi Kulkarni · May 2026</p>
+        <p>Scammers specifically target seniors because they are often more trusting, may live alone, and sometimes have more savings than younger people. The good news? Once you know how these scams work, they lose most of their power.</p>
+        <h3 style="font-size:22px; color:var(--navy); margin:28px 0 10px;">1. Government Impersonation Scams</h3>
+        <p>A caller claims to be from the IRS, Social Security Administration, or Medicare. They say you owe back taxes, your Social Security number has been "suspended," or your benefits are in jeopardy. They demand immediate payment — often in gift cards or wire transfers — threatening arrest or benefit cancellation if you don't comply.</p>
+        <p><strong>The truth:</strong> Government agencies never call demanding immediate payment. They always send official letters first. Hang up immediately.</p>
+        <h3 style="font-size:22px; color:var(--navy); margin:28px 0 10px;">2. Tech Support Scams</h3>
+        <p>A frightening pop-up message appears on your computer warning of a virus. You call the number shown and a "technician" offers to fix it remotely. Once they have access to your computer, they steal your passwords and financial information — or charge hundreds for fake services.</p>
+        <p><strong>The truth:</strong> Close the browser window or restart your computer. Real companies like Microsoft and Apple do not reach out to you unsolicited.</p>
+        <h3 style="font-size:22px; color:var(--navy); margin:28px 0 10px;">3. Romance Scams</h3>
+        <p>Someone meets you on a dating site or social media, and over weeks or months they build a warm, caring relationship. Then comes an "emergency" — a medical bill, a business deal gone wrong, travel costs to finally come meet you. The requests for money escalate, and eventually the person disappears.</p>
+        <p><strong>The truth:</strong> Never send money to someone you have not met in person, no matter how close you feel to them online.</p>
+        <h3 style="font-size:22px; color:var(--navy); margin:28px 0 10px;">4. Grandparent Scams</h3>
+        <p>"Grandma, it's me — I'm in trouble." A caller pretends to be your grandchild, saying they've been in an accident, arrested, or are stranded abroad. They beg you not to tell their parents. A second caller — posing as a lawyer or police officer — instructs you to send cash or gift cards immediately.</p>
+        <p><strong>The truth:</strong> Hang up and call your grandchild directly on a number you already know. The urgency and secrecy are always warning signs.</p>
+        <h3 style="font-size:22px; color:var(--navy); margin:28px 0 10px;">5. Lottery &amp; Prize Scams</h3>
+        <p>"You've won $50,000! Just pay the processing fee to claim your prize." Once you pay, more fees appear — until you've lost thousands chasing a prize that doesn't exist.</p>
+        <p><strong>The truth:</strong> You cannot win a contest you never entered. Legitimate prizes never require upfront payment.</p>
+        <div style="margin-top:32px; padding:20px; background:var(--gold-light); border-radius:var(--radius); border-left:4px solid var(--gold);">
+          <strong style="color:var(--navy);">The Golden Rule:</strong> If something feels urgent, suspicious, or too good to be true — stop. Hang up, close the browser, and call a family member or trusted friend before doing anything.
+        </div>
+        <button onclick="togglePost('post1')" style="margin-top:24px; background:none; border:none; color:var(--gold); font-size:15px; font-weight:600; cursor:pointer; font-family:'Segoe UI',Arial,sans-serif;">↑ Close article</button>
+      </div>
+
+      <!-- Expandable Blog Post 2 -->
+      <div id="post2" style="display:none; margin-top:40px; background:var(--white); border:1px solid var(--border); border-radius:var(--radius); padding:40px; box-shadow:var(--shadow);">
+        <span class="blog-tag">What To Do</span>
+        <h2 style="font-size:28px; color:var(--navy); margin:16px 0 8px; line-height:1.2;">What To Do If You Think You've Been Scammed</h2>
+        <p style="color:#999; font-size:14px; font-family:'Segoe UI',Arial,sans-serif; margin-bottom:28px;">By Rahi Kulkarni · May 2026</p>
+        <p>First — please know that being scammed is not your fault. These criminals are professional manipulators who trick thousands of people every year. What matters now is acting quickly to limit the damage.</p>
+        <h3 style="font-size:22px; color:var(--navy); margin:28px 0 10px;">Step 1: Stop all contact immediately</h3>
+        <p>Do not send any more money, even if the scammer threatens you or promises to return what you've already sent. Block their number and email. Every additional payment makes recovery harder.</p>
+        <h3 style="font-size:22px; color:var(--navy); margin:28px 0 10px;">Step 2: Call your bank right away</h3>
+        <p>If you sent money by bank transfer, wire, or credit card, call your bank's fraud line immediately. Ask them to reverse or stop the transaction. Time matters — the faster you call, the better your chances of recovery. The number is on the back of your card.</p>
+        <h3 style="font-size:22px; color:var(--navy); margin:28px 0 10px;">Step 3: Tell someone you trust</h3>
+        <p>Tell a family member, close friend, or neighbor what happened. This is not shameful — it's important. They can help you take next steps and watch for follow-up scam attempts (scammers often re-target victims).</p>
+        <h3 style="font-size:22px; color:var(--navy); margin:28px 0 10px;">Step 4: Report the scam</h3>
+        <p>Reporting helps protect others and can help authorities catch scammers. Here's where to report:</p>
+        <ul style="margin:12px 0 12px 24px; line-height:2;">
+          <li><strong>FTC (Federal Trade Commission):</strong> reportfraud.ftc.gov</li>
+          <li><strong>FBI Internet Crime Complaint Center:</strong> ic3.gov</li>
+          <li><strong>Local police:</strong> File a report at your local precinct</li>
+          <li><strong>State Attorney General:</strong> Search "[your state] attorney general scam report"</li>
+        </ul>
+        <h3 style="font-size:22px; color:var(--navy); margin:28px 0 10px;">Step 5: Change your passwords</h3>
+        <p>If the scammer had any access to your computer or you gave them any personal information, change the passwords on your email, bank accounts, and any other accounts immediately.</p>
+        <div style="margin-top:32px; padding:20px; background:#e8f5e9; border-radius:var(--radius); border-left:4px solid #4caf50;">
+          <strong style="color:#2e7d32;">Remember:</strong> You are not alone. Thousands of people are scammed every year — including smart, careful people. Reporting and getting help quickly is the most important thing you can do.
+        </div>
+        <button onclick="togglePost('post2')" style="margin-top:24px; background:none; border:none; color:var(--gold); font-size:15px; font-weight:600; cursor:pointer; font-family:'Segoe UI',Arial,sans-serif;">↑ Close article</button>
+      </div>
+
+      <!-- Expandable Blog Post 3 -->
+      <div id="post3" style="display:none; margin-top:40px; background:var(--white); border:1px solid var(--border); border-radius:var(--radius); padding:40px; box-shadow:var(--shadow);">
+        <span class="blog-tag">Prevention Tips</span>
+        <h2 style="font-size:28px; color:var(--navy); margin:16px 0 8px; line-height:1.2;">10 Simple Rules That Will Keep You Safe from Scammers</h2>
+        <p style="color:#999; font-size:14px; font-family:'Segoe UI',Arial,sans-serif; margin-bottom:28px;">By Rahi Kulkarni · May 2026</p>
+        <p>You don't need to be tech-savvy to stay safe. These 10 rules cover nearly every scam out there. Consider printing this list and keeping it by your phone.</p>
+        <ol style="margin:20px 0 20px 24px; line-height:2.2; font-size:17px;">
+          <li><strong>Hang up on pressure calls.</strong> If anyone pressures you to act right now, it's a scam. Real emergencies allow time to verify.</li>
+          <li><strong>Never pay with gift cards.</strong> No government agency, company, or legitimate person will ever ask for payment in gift cards. Ever.</li>
+          <li><strong>Don't give out your Social Security number, Medicare number, or bank account number</strong> to anyone who contacts you first.</li>
+          <li><strong>Verify before you trust.</strong> If someone claims to be your grandchild, bank, or government agency — hang up and call back on a number you look up yourself.</li>
+          <li><strong>Never let anyone access your computer remotely</strong> unless you called a trusted company first for help.</li>
+          <li><strong>If it sounds too good to be true, it is.</strong> Free money, prizes, or investments with guaranteed returns are always scams.</li>
+          <li><strong>Slow down.</strong> Scammers rely on panic and urgency. Take a breath, write it down, and talk to someone you trust before doing anything.</li>
+          <li><strong>Don't click links in unexpected emails or texts.</strong> Type website addresses directly into your browser instead.</li>
+          <li><strong>Talk to your family about money decisions.</strong> Having one trusted person who knows about large financial moves can prevent disaster.</li>
+          <li><strong>It's okay to say no and hang up.</strong> You are allowed to end any call, close any website, or walk away from any situation that feels wrong. You don't owe anyone an explanation.</li>
+        </ol>
+        <div style="margin-top:32px; padding:20px; background:var(--gold-light); border-radius:var(--radius); border-left:4px solid var(--gold);">
+          <strong style="color:var(--navy);">Tip:</strong> Share this list with a friend or family member. The more people who know these rules, the safer our whole community becomes.
+        </div>
+        <button onclick="togglePost('post3')" style="margin-top:24px; background:none; border:none; color:var(--gold); font-size:15px; font-weight:600; cursor:pointer; font-family:'Segoe UI',Arial,sans-serif;">↑ Close article</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── About ── -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="grid-2-1">
+        <div>
+          <div class="section-label">Who's behind this</div>
+          <h2 class="section-title">About Rahi Kulkarni</h2>
+          <p>My name is Rahi, and Senior Scam Guard is my passion project. I created this initiative because I care deeply about protecting seniors from scams and fraud.</p>
+          <p style="margin-top:16px;">I've seen how scammers manipulate people using fear, urgency, and trust — and I want to empower seniors with the knowledge to stay safe and confident. No one should have to lose their savings or their peace of mind to a criminal.</p>
+          <p style="margin-top:16px;">I'm a student, and this project started as a way to give back to my community. Every awareness session, every newsletter, every conversation matters. Together, we can stop scammers and protect the people we love.</p>
+          <div class="about-tagline">
+            <div class="tagline-item">
+              <div class="t-icon">📚</div>
+              <div class="t-word">Learn</div>
+            </div>
+            <div class="tagline-item">
+              <div class="t-icon">🛡️</div>
+              <div class="t-word">Protect</div>
+            </div>
+            <div class="tagline-item">
+              <div class="t-icon">💪</div>
+              <div class="t-word">Empower</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <img
+            src="images/rahi.jpg"
+            alt="Rahi Kulkarni, founder of Senior Scam Guard"
+            class="about-photo"
+            onerror="this.src='https://lh3.googleusercontent.com/sitesv/AA5AbUClFA0oVmBFGWrtuJ3Peb9t4cvgW1SkKC7TTDsXOU9nv0B2qQJE_2h1GKVaAusjImUSHvyWFZBCZ4ELG7uo_JMlZOPVTpLxHWS8L7snF4BQrpym1VNaPdX1PuDDFhQ0fx2mK7-1patpKNM3OPgfIvHaxTdqzBmxLReX8x6iozu8KSFD6T4twgPKU0r3DTo6SE3NRJd6uYdk4svpTwXrTVE6jsNuqkcKAx1E=w600'"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Sign Up ── -->
+  <section id="signup" class="signup-section">
+    <div class="section-label" style="color:#ffc040;">Get protected today</div>
+    <h2 class="section-title" style="color:var(--white); margin-bottom:12px;">Sign Up — It's Free</h2>
+    <p class="section-desc" style="color:rgba(255,255,255,0.80); margin-bottom:36px;">Join our newsletter and awareness sessions. We'll send you monthly scam alerts and notify you about upcoming free workshops. No spam — just safety.</p>
+    <div class="form-wrapper">
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfxuEwUMfdBDfAhAMYcq4ZJZQEE00cDl7qooLKOyqA4Eplm5w/viewform?embedded=true"
+        height="620"
+        title="Senior Scam Guard — Sign Up Form">
+        Loading form…
+      </iframe>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Senior Scam Guard</div>
+      <p class="footer-tagline">Your Safety Matters. Learn. Protect. Empower.</p>
+      <div class="footer-links">
+        <a href="#how-we-help">How We Help</a>
+        <a href="#scam-types">Know the Scams</a>
+        <a href="#blog">Blog</a>
+        <a href="#about">About</a>
+        <a href="#signup">Sign Up Free</a>
+      </div>
+      <p class="footer-copy">© 2026 Senior Scam Guard · Created by Rahi Kulkarni · A student community project</p>
+    </div>
+  </footer>
+
+  <script>
+    function togglePost(id) {
+      var el = document.getElementById(id);
+      if (el.style.display === 'none') {
+        el.style.display = 'block';
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        el.style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>
